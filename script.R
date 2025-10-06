@@ -1,7 +1,6 @@
-
 #LOAD LIBRARIES
   
-  library(tidyverse)
+library(tidyverse)
 library(janitor)
 library(tidyr)
 library(lubridate)
@@ -244,7 +243,13 @@ zipyrcompare_change <- zipyrcompare %>%
 
 zipyrcompare_change <- zipyrcompare_change %>% filter(`2025_all` > 99) %>% arrange(desc(`2025_all`))
 
+#get zip code key; make sure zip col is number
+zip_key <- read_csv("zip_key.csv") %>% clean_names()
 
+#join with zip code area names
+zipyrcompare_change <- left_join(zipyrcompare_change, zip_key, by = "zip")
+
+zipyrcompare_change <- zipyrcompare_change %>% relocate(last_col(), .after = 1)
 
 
 #collecting results for report
@@ -282,4 +287,6 @@ write_csv(zipyrcompare_change,"zipyrcompare_change.csv")
 
 write_csv(bc_transposed,"bc_transposed.csv")
 
+#to show when the data ends
 write_csv(thisyearend,"thisyearend.csv")
+
