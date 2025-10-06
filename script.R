@@ -282,4 +282,4 @@ write_csv(zipyrcompare_change,"zipyrcompare_change.csv")
 
 write_csv(bc_transposed,"bc_transposed.csv")
 
-
+write_csv(thisyearend,"thisyearend.csv")
