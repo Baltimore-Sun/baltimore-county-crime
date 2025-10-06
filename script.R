@@ -1,5 +1,5 @@
 #LOAD LIBRARIES
-  
+
 library(tidyverse)
 library(janitor)
 library(tidyr)
@@ -289,5 +289,5 @@ write_csv(zipyrcompare_change,"zipyrcompare_change.csv")
 write_csv(bc_transposed,"bc_transposed.csv")
 
 #to show when the data ends
-write_csv(thisyearend,"thisyearend.csv")
+writeLines(as.character(thisyearend),"thisyearend.txt")
 
