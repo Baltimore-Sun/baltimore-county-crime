@@ -274,7 +274,8 @@ colnames(bc_transposed) <- bc_transposed[1, ]
 # Remove the first row from the data frame
 bc_transposed <- bc_transposed[-1, ]
 
-
+# Give the first column a name
+colnames(bc_transposed)[1] <- "offense"
 
 
 
