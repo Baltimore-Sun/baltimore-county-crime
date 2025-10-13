@@ -246,6 +246,9 @@ zipyrcompare_change <- zipyrcompare_change %>% filter(`2025_all` > 99) %>% arran
 #get zip code key; make sure zip col is number
 zip_key <- read_csv("zip_key.csv") %>% clean_names()
 
+#match types of ZIP join columns
+zip_key$zip <- as.character(zip_key$zip)
+
 #join with zip code area names
 zipyrcompare_change <- left_join(zipyrcompare_change, zip_key, by = "zip")
 
