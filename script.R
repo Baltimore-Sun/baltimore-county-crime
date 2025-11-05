@@ -248,6 +248,7 @@ zip_key <- read_csv("zip_key.csv") %>% clean_names()
 
 #match types of ZIP join columns
 zip_key$zip <- as.character(zip_key$zip)
+zipyrcompare_change$zip <- as.character(zipyrcompare_change$zip)
 
 #join with zip code area names
 zipyrcompare_change <- left_join(zipyrcompare_change, zip_key, by = "zip")
